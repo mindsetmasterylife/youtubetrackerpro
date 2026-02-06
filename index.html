@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>YouTube Tracker</title>
+  </head>
+  <body>
+    <h1>YouTube Tracker</h1>
+    <form id="yt-form" onsubmit="goToWebhook(event)">
+      <input
+        type="text"
+        id="channel"
+        name="channel"
+        placeholder="Paste YouTube handle or URL"
+        style="width: 400px;"
+        required
+      />
+      <button type="submit">Track</button>
+    </form>
+
+    <script>
+      function goToWebhook(e) {
+        e.preventDefault();
+        const base = "https://hook.us2.make.com/3vpma1q3m4x695le5vx6pbi6kiubsrak";
+        const value = encodeURIComponent(document.getElementById("channel").value);
+        window.location.href = `${base}?channelInput=${value}`;
+      }
+    </script>
+  </body>
+</html>
